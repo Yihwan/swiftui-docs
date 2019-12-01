@@ -5,6 +5,9 @@
   "version": "0.1.0",
   "author": "Yihwan Kim <hi@yihwan.kim>",
   "dependencies": {
+    "@emotion/core": "^10.0.22",
+    "@emotion/styled": "^10.0.23",
+    "@mdx-js/runtime": "^1.5.1",
     "docz": "^2.2.0-alpha.4",
     "gatsby": "^2.18.4",
     "gatsby-image": "^2.2.34",
