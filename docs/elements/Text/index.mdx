@@ -4,4 +4,47 @@ menu: Elements
 route: /elements/text
 ---
 
-## Text
+import ContentBlock from 'src/components/contentBlock';
+
+## fontWeight()
+This is some optional header text.
+
+<ContentBlock imgName="Text-decorationModifiers.png">
+  <code>{`
+     VStack {
+            VStack(alignment: .trailing, spacing: 10) {
+                Text("Text.fontWeight()")
+                    .padding([.vertical])
+                
+                Text(".black")
+                    .fontWeight(.black)
+                
+                Text(".heavy")
+                    .fontWeight(.heavy)
+                
+                Text(".semibold")
+                    .fontWeight(.semibold)
+                
+                Text(".medium")
+                    .fontWeight(.medium)
+                
+                Text(".regular")
+                    .fontWeight(.regular)
+                
+                Text(".thin")
+                    .fontWeight(.thin)
+                
+                Text(".ultralight")
+                    .fontWeight(.ultraLight)
+            }
+            .font(.title)
+        }
+      `}
+  </code>
+  <table>
+    <tbody>
+    <tr><td>hasdasdsa</td></tr>
+    </tbody>
+  </table>
+</ContentBlock>
+
