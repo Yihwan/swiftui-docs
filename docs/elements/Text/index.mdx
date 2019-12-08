@@ -9,8 +9,6 @@ import TabbedContentBlock from 'src/components/tabbedContentBlock';
 
 ## Decoration Modifers 
 `underline()` and `strikethrough()` take optional `active` and `Color` params. 
-
-
 <ContentBlock imgName="Text-decorationModifiers.png">
   <code className="clike">
     {`
@@ -47,8 +45,8 @@ VStack(alignment: .trailing, spacing: 10) {
   </code>
 </ContentBlock>
 
-## fontWeight()
 
+## fontWeight()
 <ContentBlock imgName="Text-fontWeight.png">
   <code className="clike">
     {`
@@ -85,3 +83,108 @@ VStack(alignment: .trailing, spacing: 10) {
   </code>
 </ContentBlock>
 
+
+## baselineOffset()
+Vertical offset.
+<ContentBlock imgName="Text-baselineOffset.png">
+  <code className="clike">
+    {`
+/* 
+    func func baselineOffset(_ baselineOffset: CGFloat) -> Text
+*/
+VStack(alignment: .trailing, spacing: 10) {
+    Text("Text.baselineOffset()")
+        .bold()
+        .padding([.vertical])
+    
+    Text(".baselineOffset(50.5)")
+        .baselineOffset(50)
+        .border(Color.red, width: 3)
+    
+    Text(".baselineOffset(-50)")
+        .baselineOffset(-50)
+        .border(Color.red, width: 3)
+}
+.font(.title)
+    `}
+  </code>
+</ContentBlock>
+
+## tracking()
+Letter-spacing. `tracking` supercedes `kerning`. See for Apple Developer Documentation for discussion on subtle distinction.
+<ContentBlock imgName="Text-tracking.png">
+  <code className="clike">
+    {`
+/* 
+    func tracking(_ tracking: CGFloat) -> Text
+*/
+VStack(alignment: .trailing, spacing: 10) {
+    Text("Text.baselineOffset()")
+        .bold()
+        .padding([.vertical])
+    
+    Text("No Tracking")
+    
+    Text(".tracking(1)")
+        .tracking(1)
+    
+    Text(".tracking(3)")
+        .tracking(3)
+    
+    Text(".tracking(-2.5)")
+        .tracking(-2.5)
+}
+.font(.title)
+    `}
+  </code>
+</ContentBlock>
+
+## kerning()
+Letter-spacing. `tracking` supercedes `kerning`.
+<ContentBlock imgName="Text-kerning.png">
+  <code className="clike">
+    {`
+/* 
+    func tracking(_ tracking: CGFloat) -> Text
+*/
+VStack(alignment: .trailing, spacing: 10) {
+    Text("Text.kerning()")
+        .bold()
+        .padding([.vertical])
+    
+    Text("No Kerning")
+    
+    Text(".kerning(1)")
+        .kerning(1)
+    
+    Text(".kerning(3)")
+        .kerning(3)
+    
+    Text(".kerning(-2.5)")
+        .kerning(-2.5)
+}
+.font(.title)
+    `}
+  </code>
+</ContentBlock>
+
+## foregroundColor()
+Change text color 
+```clike 
+Text("Hello world").foregroundColor(.red) // makes text red
+```
+
+## Operations 
+Check equality 
+```clike 
+"Hello" == "hello" // false 
+"Hello" != "hello" // true 
+```
+
+Concatenate 
+```clike
+"Hello" + " " + "world" // "Hello world"
+```
+
+### Resources
+<a rel="noopener" or rel="noreferrer" href="https://developer.apple.com/documentation/swiftui/text" target="_blank">Apple Developer Documentation</a>
