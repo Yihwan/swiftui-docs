@@ -71,10 +71,7 @@ export const ButtonContainer = styled.div`
 export const ImageContainer = styled.div`
   width: 278px;
   padding: ${SPACER.xsmall} 0;
-  background-color: ${({ colorMode }) => colorMode === 'light' ? '#fff' : '#000'};
+  background-color: #fff;
   border-radius: 0 0 6px 6px;
-
-  img {
-    ${({ colorMode }) => colorMode === 'dark' && 'filter: invert(100%);'}
-  }
-`;
+  background-color: ${({ colorMode }) => colorMode === 'light' ? '#fff' : '#000'};
+  `;
