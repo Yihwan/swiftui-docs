@@ -2,11 +2,11 @@ import styled from '@emotion/styled';
 import { SPACER, COLORS } from 'src/constants/style';
 
 export const RuntimePreviewContainer = styled.div`
+  background-color: transparent;
   float: right; 
   margin: ${SPACER.xsmall};
   border-radius: 6px;
   ${({ state }) => ['entering', 'entered'].includes(state) && 'box-shadow: 0 0 3px 0 rgba(0,0,0,.4);'}
-  ${({ state }) => ['entering'].includes(state) && `background-color: ${COLORS.white};`}
 
 
   .image-preview-container-enter {
@@ -20,7 +20,7 @@ export const RuntimePreviewContainer = styled.div`
     transform: scale(1);
     width: 278px;
     opacity: 1; 
-    transition: all 400ms;
+    transition: all 300ms;
   }
 
   .image-preview-container-exit {
@@ -33,20 +33,23 @@ export const RuntimePreviewContainer = styled.div`
     transform: scale(0);
     width: 0px;
     opacity: 0;
-    transition: all 400ms;
+    transition: all 300ms;
   }
 `;
   
 export const ButtonContainer = styled.div`
-  background-color: ${COLORS.greyD1};
+  background-color: ${COLORS.greyD2};
   border-radius: ${({ isImageShown }) => isImageShown ? '6px 6px 0 0' : '6px'}};
   display: flex;
   align-items: center;
   ${({ isImageShown }) => !isImageShown && 'box-shadow: 0 0 3px 0 rgba(0,0,0,.4);'}
-`;
+  `;
   
-export const PreviewButton = styled.button`
+  export const PreviewButton = styled.button`
+  color: ${COLORS.white};
   font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
   padding: 6px;
   width: 100%; 
   display: flex; 
@@ -68,6 +71,10 @@ export const PreviewButton = styled.button`
 export const ImageContainer = styled.div`
   width: 278px;
   padding: ${SPACER.xsmall} 0;
-  background-color: ${COLORS.white};
+  background-color: ${({ colorMode }) => colorMode === 'light' ? '#fff' : '#000'};
   border-radius: 0 0 6px 6px;
+
+  img {
+    ${({ colorMode }) => colorMode === 'dark' && 'filter: invert(100%);'}
+  }
 `;

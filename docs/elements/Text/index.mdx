@@ -5,29 +5,83 @@ route: /elements/text
 ---
 
 import ContentBlock from 'src/components/contentBlock';
+import TabbedContentBlock from 'src/components/tabbedContentBlock';
 
-## fontWeight()
-This is some optional header text.
+## Decoration Modifers 
+`underline()` and `strikethrough()` take optional `active` and `Color` params. 
+
 
 <ContentBlock imgName="Text-decorationModifiers.png">
-  <code>{`
-     VStack {
-            VStack(alignment: .trailing, spacing: 10) {
-                Text("Text.fontWeight()")
-                    .padding([.vertical])
-                
-                Text(".black")
-                    .fontWeight(.black)
-                
-            }
-            .font(.title)
-        }
+  <code className="clike">
+    {`
+/* 
+    func bold() -> Text
+    func italic() -> Text
+    func underline(_ active: Bool = true, color: Color? = nil) -> Text
+    func strikethrough(_ active: Bool = true, color: Color? = nil) -> Text
+*/
+VStack(alignment: .trailing, spacing: 10) {
+    Text("Text Decoration Modifiers")
+        .padding([.vertical])
+    
+    Text(".bold()")
+        .bold()
+    
+    Text(".italic()")
+        .italic()
+    
+    Text(".underline()")
+        .underline()
+    
+    Text(".underline(color: .red)")
+        .underline(color: .red)
+    
+    Text(".strikethrough()")
+        .strikethrough()
+    
+    Text(".strikethrough(false)")
+        .strikethrough(false)
+}
+.font(.title)
     `}
   </code>
-  <table>
-    <tbody>
-    <tr><td>hasdasdsa</td></tr>
-    </tbody>
-  </table>
+</ContentBlock>
+
+## fontWeight()
+
+<ContentBlock imgName="Text-fontWeight.png">
+  <code className="clike">
+    {`
+/* 
+    func fontWeight(_ weight: Font.Weight?) -> Text 
+*/
+VStack(alignment: .trailing, spacing: 10) {
+    Text("Text.fontWeight()")
+        .padding([.vertical])
+    
+    Text(".black")
+        .fontWeight(.black)
+    
+    Text(".heavy")
+        .fontWeight(.heavy)
+    
+    Text(".semibold")
+        .fontWeight(.semibold)
+    
+    Text(".medium")
+        .fontWeight(.medium)
+    
+    Text(".regular")
+        .fontWeight(.regular)
+    
+    Text(".thin")
+        .fontWeight(.thin)
+    
+    Text(".ultralight")
+        .fontWeight(.ultraLight)
+}
+.font(.title)
+    `}
+  </code>
 </ContentBlock>
 

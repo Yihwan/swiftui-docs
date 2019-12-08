@@ -20,7 +20,7 @@ const Image = ({ imgName }) => {
   const image = data.allImageSharp.edges.find(
     edge => edge.node.fluid.originalName === imgName
     );
-
+    
   if (!image) {
     return null;
   }

@@ -5,15 +5,15 @@ import { FiArrowUpRight, FiArrowDownLeft } from 'react-icons/fi';
 import { 
   RuntimePreviewContainer, ButtonContainer, PreviewButton, ImageContainer 
 } from './style';
-import Image from '../image';
+import Image from './image';
 
-const ImagePreview = ({ imgName }) => {
+const ImagePreview = ({ colorMode, imgName }) => {
   const [isImageShown, setIsImageShown] = useState(true);
 
   return(
     <CSSTransition
       in={isImageShown}
-      timeout={400}
+      timeout={300}
       classNames="runtime-preview-container"
     >
       {state => (
@@ -34,7 +34,7 @@ const ImagePreview = ({ imgName }) => {
             onExited={() => setIsImageShown(false)}
             classNames="image-preview-container"
           >
-            <ImageContainer><Image imgName={imgName} /></ImageContainer>
+            <ImageContainer colorMode={colorMode}><Image imgName={imgName} /></ImageContainer>
           </CSSTransition>
         </RuntimePreviewContainer>
       )}
