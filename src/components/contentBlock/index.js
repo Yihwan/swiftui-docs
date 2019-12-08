@@ -1,32 +1,32 @@
-import React from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
+import React, { useState } from 'react';
 
-import Image from './image';
-
+import ImagePreview from './imagePreview';
 import { 
   ContentBlockContainer,
-  InfoContainer,
-  ImageContainer
+  Header,
+  TabButtonGroup,
+  Content,
 } from './style';
 
 const ContentBlock = ({ imgName, children }) => {
-  console.log(children);
+  const [tabIndex, setTabIndex] = useState(0);
+
+  const classtype = tabIndex === 0 ? 'code' : 'table';
+
   return(
     <ContentBlockContainer>
-      <InfoContainer>
-        <Tabs defaultIndex={0}>
-          <TabList>
-            <Tab>Code</Tab>
-            <Tab>API</Tab>
-          </TabList>
-          <TabPanel>{children.filter(({ props }) => props.originalType === 'code')}</TabPanel>
-          <TabPanel>{children.filter(({ props }) => props.originalType === 'table')}</TabPanel>
-        </Tabs>
-      </InfoContainer>
-      <ImageContainer>
-        <Image imgName={imgName}/>
-      </ImageContainer>
+      <Header>
+        <TabButtonGroup>
+          <button onClick={() => setTabIndex(0)}>Code</button>
+          <button onClick={() => setTabIndex(1)}>API</button>
+        </TabButtonGroup>
+      
+      </Header>
+
+      <Content>
+        {classtype === 'code' && <ImagePreview imgName={imgName} />}
+        {children.filter(({ props }) => props.originalType === classtype)}
+      </Content>
     </ContentBlockContainer>
   );
 }

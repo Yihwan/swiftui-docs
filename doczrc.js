@@ -104,7 +104,7 @@ export default {
         fontFamily: 'monospace',
         overflowX: 'auto',
         code: {
-          color: 'inherit'
+          color: 'inherit',
         }
       },
       code: {
