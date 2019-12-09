@@ -3,7 +3,7 @@ import { jsx, Box, Flex, useColorMode } from 'theme-ui'
 import { useConfig, useCurrentDoc } from 'docz'
 
 import * as styles from './styles'
-import { Edit, Menu, Sun, Github } from '../Icons'
+import { Edit, Menu, Sun, Moon, Github } from '../Icons'
 import { Logo } from '../Logo'
 
 export const Header = props => {
@@ -43,7 +43,7 @@ export const Header = props => {
           )}
           {showDarkModeSwitch && (
             <button sx={styles.headerButton} onClick={toggleColorMode}>
-              <Sun size={15} />
+              {colorMode === 'light' ? <Moon size={12} /> : <Sun size={12} />}
             </button>
           )}
         </Flex>
@@ -54,7 +54,7 @@ export const Header = props => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Edit width={14} />
+            <Edit width={13} />
             <Box sx={{ pl: 2 }}>Edit page</Box>
           </a>
         )}

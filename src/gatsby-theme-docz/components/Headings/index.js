@@ -4,7 +4,7 @@ import { jsx } from 'theme-ui'
 const heading = Tag => {
   const Component = props => {
     return !!props.id ? (
-      <Tag sx={{ marginBlockEnd: '0.4em'}} {...props}>
+      <Tag sx={{ marginBlockStart: '2rem', marginBlockEnd: '0.75rem'}} {...props}>
         <a
           href={`#${props.id}`}
           sx={{
@@ -19,7 +19,7 @@ const heading = Tag => {
         </a>
       </Tag>
     ) : (
-        <Tag sx={{ marginBlockEnd: '0.4em' }} {...props} />
+        <Tag sx={{ marginBlockStart: '2rem', marginBlockEnd: '0.75rem' }} {...props} />
     )
   }
 

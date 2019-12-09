@@ -5,7 +5,7 @@ import prismLight from './prism/light'
 export const light = {
   ...colors,
   primary: colors.blue,
-  text: colors.grayDark,
+  text: colors.grayExtraDark,
   muted: colors.gray,
   link: colors.blue,
   background: colors.white,
@@ -19,9 +19,9 @@ export const light = {
     tocLinkActive: colors.grayExtraDark,
   },
   header: {
-    bg: colors.grayExtraLight,
-    text: colors.grayDark,
-    border: colors.grayLight,
+    bg: colors.dark,
+    text: colors.grayLight,
+    border: colors.grayDark,
     button: {
       bg: colors.blue,
       color: colors.white,

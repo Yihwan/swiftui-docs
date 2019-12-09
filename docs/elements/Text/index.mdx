@@ -7,6 +7,51 @@ route: /elements/text
 import ContentBlock from 'src/components/contentBlock';
 import TabbedContentBlock from 'src/components/tabbedContentBlock';
 
+# Text 
+
+## Font 
+
+<ContentBlock imgName="Text-font.png">
+  <code className="clike">
+    {`
+/* 
+    @frozen struct Font
+    usage: Text("Hello World").font(.option) -> Text
+*/
+VStack(alignment: .trailing, spacing: 10) {
+    Text("Text.font()")
+        .bold()
+        .padding([.vertical])
+    
+    Text(".largeTitle")
+        .font(.largeTitle)
+    
+    Text(".title")
+        .font(.title)
+    
+    Text(".headline")
+        .font(.headline)
+    
+    Text(".subheadline")
+        .font(.subheadline)
+    
+    Text(".body")
+        .font(.body)
+    
+    Text(".callout")
+        .font(.callout)
+    
+    Text(".caption")
+        .font(.caption)
+    
+    Text(".footnote")
+        .font(.footnote)
+}
+.font(.title)
+    `}
+  </code>
+</ContentBlock>
+
 ## Decoration Modifers 
 `underline()` and `strikethrough()` take optional `active` and `Color` params. 
 <ContentBlock imgName="Text-decorationModifiers.png">
@@ -83,7 +128,6 @@ VStack(alignment: .trailing, spacing: 10) {
   </code>
 </ContentBlock>
 
-
 ## baselineOffset()
 Vertical offset.
 <ContentBlock imgName="Text-baselineOffset.png">
@@ -111,7 +155,7 @@ VStack(alignment: .trailing, spacing: 10) {
 </ContentBlock>
 
 ## tracking()
-Letter-spacing. `tracking` supercedes `kerning`. See for Apple Developer Documentation for discussion on subtle distinction.
+Letter-spacing, including the separation of ligatures. Supercedes `kerning` if both are used. 
 <ContentBlock imgName="Text-tracking.png">
   <code className="clike">
     {`
@@ -140,7 +184,7 @@ VStack(alignment: .trailing, spacing: 10) {
 </ContentBlock>
 
 ## kerning()
-Letter-spacing. `tracking` supercedes `kerning`.
+Letter-spacing, including trailing whitespace. Superceded by `tracking` if both are used. 
 <ContentBlock imgName="Text-kerning.png">
   <code className="clike">
     {`
@@ -168,22 +212,41 @@ VStack(alignment: .trailing, spacing: 10) {
   </code>
 </ContentBlock>
 
-## foregroundColor()
-Change text color 
+## Color
 ```clike 
 Text("Hello world").foregroundColor(.red) // makes text red
+Text("Hello world").backgroundColor(.yellow) // makes background yellow
 ```
 
 ## Operations 
-Check equality 
+Checking equality 
 ```clike 
-"Hello" == "hello" // false 
-"Hello" != "hello" // true 
+Text("Hello") == Text("hello") // false 
+Text("Hello") != Text("hello") // true 
 ```
 
-Concatenate 
+Concatenation 
 ```clike
-"Hello" + " " + "world" // "Hello world"
+Text("Hello ") + Text("world") // "Hello world"
+```
+
+## Interpolation 
+```clike 
+let year = 2038
+Text("The year is: \(year)") // "The year is 2038"
+```
+
+## Alignment 
+```clike 
+Text("Consider setting alignment on the containing stack view as well")
+    .multilineTextAlignment(.center) // .leading, .center, or .trailing
+```
+
+## Truncation 
+Text can have line limits, which will truncate the text with elipses ("...")
+```clike 
+Text("Actual truncation behavior will depend on containing view size")
+    .lineLimit(2)
 ```
 
 ### Resources

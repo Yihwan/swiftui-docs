@@ -13,7 +13,7 @@ export const innerContainer = {
   px: 4,
   position: 'relative',
   justifyContent: 'space-between',
-  height: 80,
+  height: 64,
 }
 
 export const menuIcon = {

@@ -5,10 +5,15 @@ export const logo = {
 }
 
 export const link = {
-  fontWeight: 600,
-  color: 'header.text',
+  display: 'flex',
+  alignItems: 'center',
   textDecoration: 'none',
   ':hover': {
-    color: 'primary',
+    cursor: 'pointer',
   },
+}
+
+export const img = {
+  width: '36px',
+  height: '36px',
 }

@@ -7,7 +7,7 @@ import {
   CodeContent,
 } from './style';
 
-const TabbedContentBlock = ({ imgName, children }) => {
+const ContentBlock = ({ imgName, children }) => {
   const [colorMode] = useColorMode();
   if (colorMode === 'dark') {
     const split = imgName.split('.png');
@@ -25,4 +25,4 @@ const TabbedContentBlock = ({ imgName, children }) => {
   );
 }
 
-export default TabbedContentBlock;
+export default ContentBlock;
