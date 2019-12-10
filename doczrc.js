@@ -5,4 +5,8 @@ export default {
   menu: [
     'Start'
   ], 
+  themeConfig: {
+    mode: 'dark',
+    showDarkModeSwitch: false,
+  },
 }
