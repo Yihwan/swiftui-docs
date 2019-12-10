@@ -10,4 +10,7 @@ export default {
   '.with-overlay': {
     overflow: 'hidden',
   },
+  pre: {
+    whiteSpace: 'pre-wrap',
+  }
 }

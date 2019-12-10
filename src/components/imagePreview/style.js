@@ -3,8 +3,10 @@ import { SPACER, COLORS } from 'src/constants/style';
 
 export const RuntimePreviewContainer = styled.div`
   background-color: transparent;
-  float: right; 
-  margin: ${SPACER.xsmall};
+  position: absolute;
+  top: ${SPACER.xsmall};
+  right: ${SPACER.xsmall};
+
   border-radius: 6px;
   ${({ state }) => ['entering', 'entered'].includes(state) && 'box-shadow: 0 0 3px 0 rgba(0,0,0,.4);'}
 
