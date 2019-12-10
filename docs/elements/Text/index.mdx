@@ -5,7 +5,6 @@ route: /elements/text
 ---
 
 import ContentBlock from 'src/components/contentBlock';
-import TabbedContentBlock from 'src/components/tabbedContentBlock';
 
 # Text 
 
@@ -243,7 +242,7 @@ Text("Consider setting alignment on the containing stack view as well")
 ```
 
 ## Truncation 
-Text can have line limits, which will truncate the text with elipses ("...")
+Text can have line limits, which can truncate the text with ellipses ("...")
 ```clike 
 Text("Actual truncation behavior will depend on containing view size")
     .lineLimit(2)

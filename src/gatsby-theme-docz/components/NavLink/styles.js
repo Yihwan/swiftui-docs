@@ -7,12 +7,14 @@ export const link = {
   '&.active': {
     color: 'sidebar.navLinkActive',
   },
+  fontWeight: 600,
 }
 
 export const smallLink = {
   ...link,
   ml: 3,
   fontSize: 1,
+  fontWeight: 'body',
   position: 'relative',
   color: 'sidebar.tocLink',
   '&.active': {

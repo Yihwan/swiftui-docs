@@ -9,12 +9,13 @@ export const sublinkWrapper = {
 export const title = {
   mb: 1,
   fontSize: 2,
-  fontWeight: 500,
+  fontWeight: 600,
   color: 'sidebar.navGroup',
   cursor: 'pointer',
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+
 }
 
 export const chevron = ({ active }) => ({

@@ -4,11 +4,92 @@ menu: Elements
 route: /elements/image
 ---
 
+import ContentBlock from 'src/components/contentBlock';
+
 # Image 
-Images can dragged and dropped into the 
+Import images by dragging them into the `Assets.xcassets` directory. They can them be referenced by name: 
+```clike 
+Image("ExampleImage") // You may have to restart Xcode to update the canvas preview.
+```
+You can import varying image resolutions (1x, 2x, 3x) to automatically optimize renders on different devices. [[Learn More]](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/image-size-and-resolution/)
 
-## .resizeable() 
-- resizingMode 
-- capInsets
+## SF Symbols (Icons)
+Access Apple's [system icons](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/overview/) with the `systemName` param, with similar styling modifiers as `Text`.
+```clike 
+Image(systemName: "message.circle.fill")
 
-## Aspect Ratios
+Image(systemName: "message.circle.fill")
+    .font(.largeTitle)
+    .foregroundColor(.blue)
+```
+
+## .resizable() 
+Size image to available space, often used with `.aspectRatio()` to avoid undesired stretching. Can tile the entire or part of the image with `renderingMode: .tile`.
+<ContentBlock imgName="Image-resizable.png">
+  <code className="clike">
+    {`
+/* 
+    func resizable(capInsets: EdgeInsets = EdgeInsets(), resizingMode: Image.ResizingMode = .stretch) -> Image
+*/
+VStack(spacing: 20) {
+    Image("Bangkok") // unsplash.com/photos/g5Uh7nP60FA
+            .resizable()
+            .frame(width: 350, height:100) // contain element within a view of 350x100\n
+    Image("Bangkok")
+        .resizable()
+        .frame(width: 200, height:100)\n
+    Image("SwiftUI") // developer.apple.com/assets/elements/icons/swiftui/swiftui-96x96.png
+        .resizable(resizingMode: .tile) // default: .stretch
+        .frame(width: 200, height: 100)\n
+    // tile image offsets (... but why would you ever do this?)
+    Image("SwiftUI")
+        .resizable(capInsets: EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 0), resizingMode: .tile)
+        .frame(width: 350, height: 200)
+}
+    `}
+  </code>
+</ContentBlock>
+
+## .aspectRatio()
+Adjust an image's aspect ratio and indicate whether it should "fill" or "fit into" all available space. You can also use the `.scaledToFit()` and `.scaledToFill()` aliases to select a `contentMode` without modifying the image's original aspect ratio.
+<ContentBlock imgName="Image-aspectRatio.png">
+  <code className="clike">
+    {`
+/* 
+    func aspectRatio(_ aspectRatio: CGFloat? = nil, contentMode: ContentMode) -> some View
+*/
+VStack(spacing: 20) {
+    Image("Bangkok")
+        .resizable()
+        .aspectRatio(contentMode: .fill) // .scaledToFill()
+        .frame(width: 200, height: 200)
+        .border(Color.red, width: 3)\n
+    Image("Bangkok")
+        .resizable()
+        .aspectRatio(contentMode: .fit) // .scaledToFit()
+        .frame(width: 200, height: 200)
+        .border(Color.red, width: 3)\n
+    Image("Bangkok")
+        .resizable()
+        .aspectRatio(0.25, contentMode: .fit)
+        .frame(width: 200, height: 200)
+        .border(Color.red, width: 3)
+}
+    `}
+  </code>
+</ContentBlock>
+
+## .scaleEffect()
+```clike 
+Image("Bangkok")
+    .resizable()
+    .scaleEffect(2)
+    .frame(width: 200, height: 200) // makes actual dimensions 400x400
+```
+
+## .rotationEffect()
+```clike 
+Image("Bangkok")
+    .resizable()
+    .rotationEffect(.degrees(100)) \\ can also use .radians()
+```
