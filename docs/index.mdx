@@ -1,21 +1,53 @@
 ---
 name: Start
 route: /
+limitMaxWidth: true
 ---
 
 # SwiftUI Docs 
-An unofficial guide to Apple's SwiftUI. 
-- NOT intended to be exhaustive API, can go to Apple's Developer Documentation for that 
-- Quick start written by a web developer, for web developers (or anyone else)
+*An unofficial guide to Apple's SwiftUI.*
 
-## Introduction to SwiftUI
-- View model (like divs, sort of)
-- Precedence 
+<br />
 
-## Future Sections: 
-- Shapes (built-in)
-- Layout & Positioning: Stacks, ZIndex, Lists? 
-- Forms 
+SwiftUI is great! But sifting through the [official spec](https://developer.apple.com/documentation/swiftui) can be daunting, 
+and learning exclusively from tutorials can feel incomplete.  
+
+For example, a tutorial tells you to style `Text("Hello world!")` with `.font(.title)`.
+That's nice, but what are the other options besides `.title`? What do these other options look like? 
+
+The [provided docs](https://developer.apple.com/documentation/swiftui/font/3055727-title) aren't
+always the most visual, and Xcode's built-in (Option+click) doc search feature isn't always the most helpful. 
+
+Wouldn't it be great if we could [scan the docs](/elements/text#font) and 
+instantly see how SwiftUI works? I thought so, which is why I'll take notes here as I learn 
+SwiftUI myself. Maybe you'll find this helpful too.
+
+This site isn't intended to encompass an exhaustive specification of SwiftUI and everything
+else in the Apple ecosystem. Instead, think of it as a quick-start guide (with pictures!) to 
+hit the ground running.
+
+Am I missing something? Yes, because I just started. Did I get something horribly 
+wrong? Probably, because I rarely know what I'm doing. But that's all okay, 
+because this project is [open-source](https://github.com/Yihwan/swiftui-docs) - 
+and contributions are welcome!
+
+If you have any questions or would otherwise like to get in touch, 
+feel free to send me a message at [hi@yihwan.kim](mailto:hi@yihwan.kim) or find me on 
+most things @yihwan. 
+
+Happy hacking! 
+
+<br />
+
+## Future Content
+- Introduction to SwiftUI (View model, modifier precedence, and so on)
+- Layout & Positioning: Stacks, LayoutPriority
 - Navigation 
-
-[WIP]
+- Lists
+- Forms (inputs)
+- Drawing (shapes, gradients, patterns)
+- Animation
+- State 
+- Other Important Data Stuff Beyond State
+- Xcode & The Stages of Grief 
+- and more ...

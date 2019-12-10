@@ -30,3 +30,7 @@ export const content = {
     pt: 5,
   },
 }
+
+export const slimContainer = {
+  maxWidth: 700,
+}

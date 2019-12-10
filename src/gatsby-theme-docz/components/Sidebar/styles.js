@@ -34,6 +34,7 @@ export const wrapper = ({ open }) => ({
   overflow: 'auto',
   WebkitOverflowScrolling: 'touch',
   bg: 'sidebar.bg',
+  letterSpacing: '0.03em',
 
   [media.tablet]: {
     zIndex: 9999,
