@@ -6,6 +6,6 @@ export default {
     'Start'
   ], 
   themeConfig: {
-    showDarkModeSwitch: false,
+    showDarkModeSwitch: true,
   },
 }

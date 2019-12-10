@@ -10,7 +10,7 @@ moraga.headerWeight = 700
 const typography = toTheme(moraga)
 
 export default merge(typography, {
-  initialColorMode: 'dark',
+  initialColorMode: 'light',
   // Show errors above playground editor
   showLiveError: true,
   // Show preview of the code inside playground
