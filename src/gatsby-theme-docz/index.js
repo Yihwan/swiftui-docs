@@ -8,9 +8,6 @@ import components from '~components'
 
 const Theme = ({ children }) => {
   const config = useConfig()
-  defaultTheme.initialColorMode = localStorage.getItem('theme-ui-color-mode');
-  console.log(defaultTheme)
-  console.log(localStorage)
   return (
     <ThemeProvider theme={config.themeConfig}>
       <ComponentsProvider components={components}>
