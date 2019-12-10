@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `SwiftUI Docs`,
-    description: ``,
+    description: `An unofficial guide to Apple's SwiftUI.`,
     author: `@yihwan`,
   },
   plugins: [
