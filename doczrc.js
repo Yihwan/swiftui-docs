@@ -7,5 +7,10 @@ export default {
   ], 
   themeConfig: {
     showDarkModeSwitch: false,
+    styles: {
+      h2: {
+        fontWeight: 400,
+      }
+    }
   },
 }
