@@ -4,16 +4,25 @@ export default {
   ignore: ['README.md'],
   menu: [
     'Start',
-    'Elements',
-    'Layout',
-    'Form & Inputs',
+    {
+      name: 'Elements',
+      menu: ['Introduction'],
+    },
+    {
+      name: 'Layout',
+      menu: ['Introduction'],
+    },
+    {
+      name: 'Form & Inputs',
+      menu: ['Introduction'],
+    },
   ], 
   themeConfig: {
     showDarkModeSwitch: false,
     styles: {
       h1: {
         my: 4,
-      }
+      },
     }
   },
 }
