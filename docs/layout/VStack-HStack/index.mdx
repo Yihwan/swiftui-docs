@@ -1,13 +1,22 @@
 ---
-name: TextField
-menu: Form & Inputs
-route: /form-inputs/textfield
+name: VStack & HStack
+menu: Layout
+route: /layout/vstack-hstack
 ---
 
 import ContentBlock from 'src/components/contentBlock';
 
-# TextField 
-A generic containing view for data input elements.
+# VStack & HStack
+
+A stack groups content vertically (VStack) or horizontally (HStack). A stack can also determine the order of overlapping content (ZStack). Stacks are commonly nested to create layouts.
+
+By default, `VStack` and `HStack` align to the middle and center of the containing view. 
+You can specify a different `alignment` property such as `.leading` or `.trailing` for `VStack`. 
+`HStack` takes [different alignment params](https://developer.apple.com/documentation/swiftui/verticalalignment), but 
+these are rarely used. 
+
+You can also pass a `spacing` param to apply an equal amount of space between each 
+view (element) in the stack. 
 
 <ContentBlock imgName="Stacks-VStackHStack.png">
   <code className="clike">

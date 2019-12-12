@@ -10,5 +10,10 @@ export default {
   ], 
   themeConfig: {
     showDarkModeSwitch: false,
+    styles: {
+      h1: {
+        my: 4,
+      }
+    }
   },
 }

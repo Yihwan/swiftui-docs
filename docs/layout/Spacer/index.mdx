@@ -1,0 +1,37 @@
+---
+name: Spacer
+menu: Layout
+route: /layout/spacer
+---
+
+import ContentBlock from 'src/components/contentBlock';
+
+
+## Spacer() 
+Adds the maximum available space when placed between adjacent views.
+<ContentBlock imgName="Stacks-spacer.png">
+  <code className="clike">
+    {`
+/* 
+    @frozen struct Spacer
+*/
+VStack(spacing: 60) {
+    VStack {
+        Text("Above Spacer()")
+            .padding()
+        Spacer()
+        Text("Below Spacer()")
+    }
+    .padding()
+    .border(Color.red, width: 3)\n
+    HStack() {
+        Text("Left of Spacer()")
+        Spacer()
+        Text("Right of Spacer()")
+    }
+    .padding()
+    .border(Color.red, width: 3)
+}
+    `}
+  </code>
+</ContentBlock>

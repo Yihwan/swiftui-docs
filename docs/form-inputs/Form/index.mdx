@@ -5,3 +5,53 @@ route: /form-inputs/form
 ---
 
 import ContentBlock from 'src/components/contentBlock';
+
+# Form 
+A generic containing view for data input elements.
+
+<ContentBlock imgName="Stacks-VStackHStack.png">
+  <code className="clike">
+    {`
+/* 
+    @frozen struct VStack<Content> where Content : View
+    init(alignment: HorizontalAlignment = .center, spacing: CGFloat? = nil, @ViewBuilder content: () -> Content)\n
+    @frozen struct HStack<Content> where Content : View
+    init(alignment: VerticalAlignment = .center, spacing: CGFloat? = nil, @ViewBuilder content: () -> Content)\n
+    Outer VStack: blue
+    Inner stacks: yellow
+    Text views: red
+*/
+VStack(spacing: 60) {
+    VStack(spacing: 15) {
+        Text("I have some spacing between here").border(Color.red)
+        Text("and here").border(Color.red)
+    }
+    .padding()
+    .border(Color.yellow, width: 3)\n
+    HStack() {
+        Text("I am").border(Color.red)
+        Text("centered horizontally").border(Color.red)
+        Text("in an").border(Color.red)
+        Text("HStack").border(Color.red)
+    }
+    .padding()
+    .border(Color.yellow, width: 3)\n
+    VStack(alignment: .leading) {
+        Text("I am aligned").border(Color.red)
+        Text("to the left within this VStack").border(Color.red)
+    }
+    .padding()
+    .border(Color.yellow, width: 3)\n
+    VStack(alignment: .trailing) {
+        Text("I am aligned").border(Color.red)
+        Text("to the right within this VStack").border(Color.red)
+    }
+    .padding()
+    .border(Color.yellow, width: 3)
+}
+.font(.headline)
+.padding()
+.border(Color.blue, width: 3)
+    `}
+  </code>
+</ContentBlock>
