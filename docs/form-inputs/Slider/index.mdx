@@ -4,4 +4,38 @@ menu: Form & Inputs
 route: /form-inputs/slider
 ---
 
+import ContentBlock from 'src/components/contentBlock';
+
 # Slider
+Provide an initial value of type `Double`. Specify the min/max range with `in:` 
+and adjust `step:` to control granularity.
+<ContentBlock imgName="Form-slider.png">
+  <code className="clike">
+    {`
+/* 
+    struct Slider<Label, ValueLabel> where Label : View, ValueLabel : View
+*/
+struct FormSlider: View {
+    @State private var sliderValue: Double = 5
+    
+    var body: some View {
+        Form {
+            Section {
+                Slider(value: $sliderValue, in: 0...10, step: 1)
+                Text("Slider value: \(sliderValue)")
+            }
+            
+            Section {
+                Slider(value: $sliderValue, in: 0...10, step: 1)
+                Text("Slider value: \(sliderValue, specifier: "%.0f")")
+            }
+        }
+    }
+}
+    `}
+  </code>
+</ContentBlock>
+
+### See Also 
+- [Specifying Ranges]() - for the `in:` parameter
+- [Formatting Numbers]() - to display the current `Slider` value
