@@ -4,4 +4,46 @@ menu: Form & Inputs
 route: /form-inputs/toggle
 ---
 
+import ContentBlock from 'src/components/contentBlock';
+
 # Toggle
+
+<ContentBlock imgName="Form-toggle.png">
+  <code className="clike">
+    {`
+/* 
+  struct Toggle<Label> where Label : View
+*/
+struct FormToggle: View {
+    @State private var areTogglesOn: Bool = false\n
+    var body: some View {
+        Form {
+            Toggle("Toggle with just text", isOn: $areTogglesOn)\n
+            Toggle(isOn: $areTogglesOn) {
+                HStack {
+                    Text("Toggle with icon")
+                    Image(systemName: "pencil.circle.fill")
+                }
+            }\n
+        }
+    }
+}
+    `}
+  </code>
+</ContentBlock>
+
+## Plain Text Label
+```clike 
+  Toggle("Toggle with just text", isOn: $areTogglesOn)
+```
+
+## Custom Label 
+Create a custom label by passing a view as a callback. 
+```clike 
+Toggle(isOn: $areTogglesOn) {
+    HStack {
+        Text("Toggle with icon")
+        Image(systemName: "pencil.circle.fill")
+    }
+}
+```

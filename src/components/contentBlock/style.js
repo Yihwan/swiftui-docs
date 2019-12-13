@@ -8,5 +8,5 @@ export const ContentBlockContainer = styled.div`
   position: relative; 
   overflow: hidden;
 
-  min-height: 650px;
+  ${({ imgName }) => imgName && 'min-height: 650px;'}
 `;

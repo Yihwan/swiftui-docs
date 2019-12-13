@@ -14,9 +14,9 @@ const ContentBlock = ({ imgName, children }) => {
   }
 
   return (
-    <ContentBlockContainer colorMode={colorMode}>
+    <ContentBlockContainer colorMode={colorMode} imgName={imgName}>
       {children}
-      <ImagePreview colorMode={colorMode} imgName={imgName} />
+      {imgName && <ImagePreview colorMode={colorMode} imgName={imgName} />}
     </ContentBlockContainer>
   );
 }
