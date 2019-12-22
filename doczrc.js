@@ -16,7 +16,7 @@ export default {
     },
   ], 
   themeConfig: {
-    showDarkModeSwitch: false,
+    showDarkModeSwitch: true,
     styles: {
       h1: {
         my: 4,
