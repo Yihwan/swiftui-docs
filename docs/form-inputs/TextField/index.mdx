@@ -1,0 +1,35 @@
+---
+name: TextField
+menu: Form & Inputs
+route: /form-inputs/textfield
+---
+
+import ContentBlock from 'src/components/contentBlock';
+
+# TextField 
+<ContentBlock imgName="Form-textField.png">
+  <code className="clike">
+    {`
+/* 
+    struct TextField<Label> where Label : View
+*/
+struct FormTextField: View {
+    @State private var input: String = ""\n
+    var body: some View {
+        Form {
+            TextField("Default/plain text field", text: $input)\n
+            TextField("Text field with rounded borders", text: $input)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+        }
+    }
+}
+    `}
+  </code>
+</ContentBlock>
+
+## `.textFieldStyle()`
+Can be modified to have rounded borders with `.textFieldStyle(RoundedBorderTextFieldStyle())`
+```clike 
+TextField("Text field with rounded borders", text: $input)
+    .textFieldStyle(RoundedBorderTextFieldStyle())
+```

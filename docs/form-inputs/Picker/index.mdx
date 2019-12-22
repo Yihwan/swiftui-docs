@@ -1,0 +1,86 @@
+---
+name: Picker
+menu: Form & Inputs
+route: /form-inputs/picker
+---
+
+# Picker
+Used to select one option from many.
+
+<ContentBlock imgName="Form-toggle.png">
+  <code className="clike">
+    {`
+/* 
+  struct Picker<Label, SelectionValue, Content> where Label : View, SelectionValue : Hashable, Content : View
+*/
+@State private var selectedIdx = 0
+@State private var options = ["Option 1", "Option 2", "Option 3"]\n
+var body: some View {
+    NavigationView {
+        Form {
+            Section(header: Text("Using hard-coded .tag()")) {
+                Picker(selection: $selectedIdx, label: Text("I'm a Picker in a Form"), content: {
+                    Text("Option 1").tag(0)
+                    Text("Option 2").tag(1)
+                    Text("Option 3").tag(2)
+                })
+            }\n
+            Section(header: Text("Using ForEach")) {
+                Picker(selection: $selectedIdx, label: Text("I'm a Picker in a Form")) {
+                    ForEach(0 ..< options.count) { index in
+                        Text(self.options[index])
+                    }
+                    //  Can also do:
+                    //  ForEach(0 ..< options.count) {
+                    //      Text(self.options[$0])
+                    //  }
+                }
+            }\n
+            Section(header: Text("Segmented Picker Style (iOS 13)")) {
+                Picker(selection: $selectedIdx, label: Text("I'm a Picker in a Form")) {
+                    ForEach(0 ..< options.count) {
+                        Text(self.options[$0])
+                    }
+                }.pickerStyle(SegmentedPickerStyle())
+            }
+        }
+        .navigationBarTitle("NavigationView")
+    }
+}
+    `}
+  </code>
+</ContentBlock>
+
+## Inside `NavigationView`
+Wrap in a `NavigationView` to open a new list view with all available options.
+```clike 
+NavigationView {
+    Form {
+        Section(header: Text("Using hard-coded .tag()")) {
+            Picker(selection: $selectedIdx, label: Text("I'm a Picker in a Form"), content: {
+                Text("Option 1").tag(0)
+                Text("Option 2").tag(1)
+                Text("Option 3").tag(2)
+            })
+        }
+    }
+    .navigationBarTitle("NavigationView")
+}
+```
+
+## `.pickerStyle()` 
+```clike 
+Picker(selection: $selectedIdx, label: Text("I'm a Picker in a Form")) {
+    ForEach(0 ..< options.count) {
+        Text(self.options[$0])
+    }
+}
+.pickerStyle(SegmentedPickerStyle())
+
+Picker(selection: $selectedIdx, label: Text("I'm a Picker in a Form")) {
+    ForEach(0 ..< options.count) {
+        Text(self.options[$0])
+    }
+}
+.pickerStyle(WheelPickerStyle())
+```

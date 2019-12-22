@@ -1,0 +1,65 @@
+---
+name: ZStack
+menu: Layout
+route: /layout/zstack
+---
+
+import ContentBlock from 'src/components/contentBlock';
+
+# ZStack
+Determines order of overlapping views, with proceeding items being placed on top by default. 
+You can also use `.zIndex()` to specify your own order. 
+
+Can also be [aligned](https://developer.apple.com/documentation/swiftui/alignment) horizontally and vertically. 
+
+<ContentBlock imgName="Stacks-ZStack.png">
+  <code className="clike">
+    {`
+/* 
+    @frozen struct ZStack<Content> where Content : View
+    init(alignment: Alignment = .center, @ViewBuilder content: () -> Content)
+*/
+VStack {
+    ZStack {
+        Text("Red")
+            .frame(width: 200, height: 200)
+            .background(Color.red)
+        Text("Blue")
+            .frame(width: 100, height: 100)
+            .background(Color.blue)
+        Text("Yellow")
+            .frame(width: 50, height: 50)
+            .background(Color.yellow)
+    }\n
+    Spacer()\n
+    ZStack(alignment: .topLeading) {
+        Text("Red")
+            .frame(width: 200, height: 200)
+            .background(Color.red)
+        Text("Blue")
+            .frame(width: 100, height: 100)
+            .background(Color.blue)
+        Text("Yellow")
+            .frame(width: 50, height: 50)
+            .background(Color.yellow)
+    }\n
+    Spacer()\n
+    ZStack {
+        Text("Red")
+            .frame(width: 200, height: 200)
+            .background(Color.red)
+            .zIndex(0)
+        Text("Blue")
+            .frame(width: 100, height: 100)
+            .background(Color.blue)
+            .zIndex(2)
+        Text("Yellow")
+            .frame(width: 50, height: 50)
+            .background(Color.yellow)
+            .zIndex(1)
+            .offset(x: 50, y: 50)
+    }
+}
+    `}
+  </code>
+</ContentBlock>

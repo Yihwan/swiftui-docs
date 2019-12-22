@@ -7,7 +7,7 @@ export const link = {
   '&.active': {
     color: 'sidebar.navLinkActive',
   },
-  fontWeight: 600,
+  fontWeight: 500,
 }
 
 export const smallLink = {
