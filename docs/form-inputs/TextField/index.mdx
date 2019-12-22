@@ -7,7 +7,6 @@ route: /form-inputs/textfield
 import ContentBlock from 'src/components/contentBlock';
 
 # TextField 
-Can be modified to have rounded borders with `.textFieldStyle(RoundedBorderTextFieldStyle())`
 <ContentBlock imgName="Form-textField.png">
   <code className="clike">
     {`
@@ -27,3 +26,10 @@ struct FormTextField: View {
     `}
   </code>
 </ContentBlock>
+
+## `.textFieldStyle()`
+Can be modified to have rounded borders with `.textFieldStyle(RoundedBorderTextFieldStyle())`
+```clike 
+TextField("Text field with rounded borders", text: $input)
+    .textFieldStyle(RoundedBorderTextFieldStyle())
+```

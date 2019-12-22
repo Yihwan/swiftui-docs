@@ -8,6 +8,14 @@ An unofficial guide to Apple's SwiftUI.
 
 ## Outline 
 
+### Form 
+- Slider: 
+-- Specifying Ranges- for the `in:` parameter
+-- Formatting Numbers - to display the current `Slider` value
+- DatePicker 
+-- Date
+- Form: A generic containing view for data input elements.
+
 ### Elements 
 - Button 
 - Alert 
