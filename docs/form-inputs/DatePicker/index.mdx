@@ -1,0 +1,53 @@
+---
+name: DatePicker
+menu: Form & Inputs
+route: /form-inputs/datepicker
+---
+
+import ContentBlock from 'src/components/contentBlock';
+
+# DatePicker
+Provide an initial value of type `Date`. Specify the min/max range with `in` and 
+choose between displaying the date or time with `displayedComponents`.
+
+<ContentBlock imgName="Form-datePicker.png">
+  <code className="clike">
+    {`
+/* 
+  struct DatePicker<Label> where Label : View
+*/
+struct FormDatePicker: View {
+    @State private var date = Date()
+    
+    var body: some View {
+        Form {
+            DatePicker(selection: $date, in: ...Date(), displayedComponents: .date) {
+                Text("Select a date")
+            }\n
+            DatePicker(selection: $date, in: ...Date(), displayedComponents: .hourAndMinute) {
+                Text("Select a time")
+            }
+        }
+    }
+}
+    `}
+  </code>
+</ContentBlock>
+
+## Date Ranges 
+```clike 
+// Up to current date 
+DatePicker(selection: $date, in: ...Date(), displayedComponents: .date) {
+    Text("Select a date")
+}
+
+// Current date and after
+DatePicker(selection: $date, in: Date()..., displayedComponents: .date) {
+    Text("Select a date")
+}
+
+// Custom range (use Date types)
+DatePicker(selection: $date, in: $startDate...$endDate, displayedComponents: .date) {
+    Text("Select a date")
+}
+```

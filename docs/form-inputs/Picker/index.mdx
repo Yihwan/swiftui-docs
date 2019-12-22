@@ -4,10 +4,12 @@ menu: Form & Inputs
 route: /form-inputs/picker
 ---
 
+import ContentBlock from 'src/components/contentBlock';
+
 # Picker
 Used to select one option from many.
 
-<ContentBlock imgName="Form-toggle.png">
+<ContentBlock imgName="Form-picker.png">
   <code className="clike">
     {`
 /* 
@@ -53,7 +55,9 @@ var body: some View {
 
 ## Inside `NavigationView`
 Wrap in a `NavigationView` to open a new list view with all available options.
-```clike 
+<ContentBlock imgName="Form-pickerOptions.png">
+  <code className="clike">
+    {`
 NavigationView {
     Form {
         Section(header: Text("Using hard-coded .tag()")) {
@@ -66,7 +70,9 @@ NavigationView {
     }
     .navigationBarTitle("NavigationView")
 }
-```
+    `}
+  </code>
+</ContentBlock>
 
 ## `.pickerStyle()` 
 ```clike 
